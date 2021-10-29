@@ -1,0 +1,25 @@
+{
+  "name": "my-appoitments",
+  "version": "1.0.0",
+  "main": "electron.config.js",
+  "author": "Rodolfo Mariano de Souza",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview",
+    "start": "yarn dev & yarn electron ."
+  },
+  "dependencies": {
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@vitejs/plugin-react": "^1.0.0",
+    "electron": "^15.3.0",
+    "typescript": "^4.3.2",
+    "vite": "^2.6.4"
+  }
+}
