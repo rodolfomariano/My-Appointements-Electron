@@ -1,0 +1,33 @@
+.container {
+  height: 100vh;
+
+  display: flex;
+
+  .calendar_container {
+    width: 60%;
+    background-color: var(--background-dark);
+    padding: 1rem;
+
+    header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      width: 100%;
+      
+      .leftContainer {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+
+        flex: 1;
+        
+      }
+    }
+  }
+
+  .appointments_container {
+    flex: 1;
+    padding: 1rem;
+  }
+}

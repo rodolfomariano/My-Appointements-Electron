@@ -6,7 +6,7 @@ app.on('ready', () => {
   mainWindow = new BrowserWindow({
     minWidth: 1200,
     minHeight: 680,
-    transparent: true,
+    // transparent: true,
     autoHideMenuBar: true,
     webPreferences: {
       nodeIntegration: true,

@@ -1,0 +1,14 @@
+.container {
+  font-size: 1rem;
+  color: var(--background-light);
+  background-color: var(--simple-button);
+  padding: .25rem .5rem;
+  border-radius: .25rem;
+
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    filter: brightness(.9);
+  }
+}
