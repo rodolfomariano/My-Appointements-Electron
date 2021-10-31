@@ -26,7 +26,9 @@ export function FindAction() {
             : `${styles.foundContainer} ${styles.hiddenSearchResults}`
           }
         >
-
+          <p>
+            Buscando por: <strong>{toFind}</strong>
+          </p>
         </div>
       </section>
 

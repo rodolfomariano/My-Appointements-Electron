@@ -17,6 +17,21 @@
   --menu-text: #525151;
 
   --input-text-light: #D9E8F5;
+  --weekendDays: #7D879F;
+  --days-color: #6DB0EB;
+  --title-dark: #283553;
+}
+
+@media (max-width: 1080px) {
+  html {
+    font-size: 93.75%;
+  }
+}
+
+@media (max-width: 720px) {
+  html {
+    font-size: 87.5%;
+  }
 }
 
 body {
