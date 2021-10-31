@@ -33,7 +33,9 @@ export function FindAction() {
       <div
         className={toFind !== ''
           ? `${styles.searchBackground} ${styles.searchVisibleBackground}`
-          : `${styles.searchBackground} ${styles.searchHiddenBackground}`}
+          : `${styles.searchBackground} ${styles.searchHiddenBackground}`
+        }
+        onClick={() => setToFind('')}
       />
     </>
   )
