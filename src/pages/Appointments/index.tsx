@@ -5,6 +5,7 @@ import styles from './styles.module.scss'
 import { FindAction } from '../../components/FindAction'
 import { FloatingMenu } from '../../components/FloatingMenu'
 import { SimpleButton } from '../../components/SimpleButton'
+import { AppointmentCard } from '../../components/AppointmentCard'
 
 
 export function Appointments() {
@@ -299,6 +300,10 @@ export function Appointments() {
           <p>
             Próximo compromisso
           </p>
+          <div className={styles.nextAppointment}>
+            <AppointmentCard type='emphasis' />
+          </div>
+          <AppointmentCard />
         </main>
       </section>
     </main>

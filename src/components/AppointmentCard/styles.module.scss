@@ -1,0 +1,88 @@
+.container {
+  width: 100%;
+  height: 80px;
+  background-color: #FFFFFF;
+  border-radius: 1rem;
+  // padding: .5rem 1rem;
+
+  display: flex;
+  align-items: center;
+
+  .iconContainer {
+    width: 70px;
+    height: 100%;
+    background-color: #B58C2F;
+    border-radius: 1rem 0 0 1rem;
+    font-size: 1.5rem;
+    color: var(--background-light);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .appointmentData {
+    flex: 1;
+    padding: 1rem .5rem;
+    height: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .aboutAppointment {
+      flex: 1;
+
+      .appointmentTitle {
+        color: var(--title-dark);
+        line-height: 10px;
+      }
+  
+      .appointmentDescription {
+        color: var(--text-light);
+        font-size: .85rem;
+      }
+
+    }
+
+
+    .appointmentTime {
+      color: var(--time);
+      line-height: 0;
+    }
+  }
+
+  .actions {
+    width: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .actionButton {
+      color: var(--text-light);
+      font-size: 1rem;
+      padding: .5rem;
+      border-radius: 50%;
+      background-color: #FFF;
+      transition: filter 200ms;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        filter: brightness(.9);
+      }
+    }
+  }
+}
+
+.container.emphasis {
+  box-shadow: 2px 4px 4px #ccc;
+
+}
+
+.container.default {
+  box-shadow: 0 0 2px #ccc;
+}
