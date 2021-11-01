@@ -55,7 +55,9 @@
           
           .monthTitle {
             font-size: 1.4rem;
-            
+            display: inline-block;
+            width: 200px;
+            text-align: center;
           }
         }
       }
@@ -99,6 +101,10 @@
               .day {
                 color: var(--days-color);
                 font-size: 1rem;
+
+                &.toDay {
+                  color: var(--action);
+                }
               }
 
               .appointmentTagContainer {
@@ -121,7 +127,49 @@
               }
 
               &:hover {
-                filter: brightness(.9);
+                // filter: brightness(.9);
+
+                .day {
+                  color: var(--background-light);
+                }
+              }
+
+              &.isWeekend {
+                opacity: .5;
+              }
+
+              &.isActive { 
+                position: relative;
+
+                .day {
+                  position: relative;
+                  z-index: 50;
+                  color: var(--title-dark);
+                }
+
+                .appointmentTagContainer {
+                  position: relative;
+                  z-index: 50;
+                }
+
+                &::before {
+                  position: absolute;
+                  z-index: 20;
+                  bottom: 0;
+                  top: 0;
+                  left: 0;
+                  right: 0;
+                  content: '';
+                  margin: auto;
+                  background-color: var(--daySelected);
+                  border-radius: 50%;
+
+                  animation: animeBounce 500ms ease-in-out;
+                }
+
+                &:hover {
+                  filter: brightness(1);
+                }
               }
             }
           }
@@ -186,6 +234,84 @@
       .nextAppointment {
         margin-bottom: 2rem;
       }
+
+      .nextAppointmentsContainer {
+        width: 100%;
+        
+        .nextAppointmentsOptions {
+          border-bottom: 1px solid #353d401f;
+  
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          .appointmentButton {
+            width: 100%;
+            font-size: 1rem;
+            font-weight: 300;
+            padding: .5rem 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &.buttonActive {
+              font-weight: 400;
+              border-bottom: 1px solid #353d40;
+            }
+
+            &:hover {
+              font-weight: 400;
+            }
+          }
+          
+        }
+
+        .appointmentsListContainer {
+          margin-top: 1rem;
+          width: 100%;
+          height: 55vh;
+          padding: 1rem;
+          overflow-Y: auto;
+
+          display: flex;
+          flex-direction: column;
+          gap: .5rem;
+
+          &::-webkit-scrollbar {
+            width: 6px;
+            background-color: var(--input-text-light);
+            border-radius: 20px;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background-color: var(--background-dark);
+            border-radius: 20px;
+          }
+        }
+      }
     }
+  }
+}
+
+@keyframes animeBounce {
+  0% {
+    width: 0;
+    height: 0;
+  }
+
+  60% {
+    width: 100%;
+    height: 100%;
+  }
+
+  85% {
+    width: 60%;
+    height: 60%;
+  }
+
+  100% {
+    width: 90%;
+    height: 90%;
   }
 }
