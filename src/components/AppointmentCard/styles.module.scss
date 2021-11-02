@@ -5,6 +5,7 @@
   background-color: #FFFFFF;
   border-radius: 1rem;
   // padding: .5rem 1rem;
+  animation: animeCard 900ms;
 
   display: flex;
   align-items: center;
@@ -90,4 +91,16 @@
   height: 75px;
   font-size: 90%;
 
+}
+
+@keyframes animeCard {
+  0% {
+    // transform: translateY(20px);
+    opacity: 0;
+  }
+
+  100% {
+    // transform: translateY(0);
+    opacity: 1;
+  }
 }
