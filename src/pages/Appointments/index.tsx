@@ -24,6 +24,7 @@ export function Appointments() {
   const [currentYear, setCurrentYear] = useState(today.getFullYear())
   const [currentMonth, setCurrentMonth] = useState(today.getMonth())
   const [appointmentOfDay, setAppointmentOfDay] = useState({} as AppointmentOfDayProps)
+  const [optionsTypeAppointmentActive, setOptionTypeAppointmentActive] = useState('next' || 'open' || 'done' || 'canceled')
 
   const currentDay = today.getDate()
 
@@ -218,10 +219,38 @@ export function Appointments() {
 
           <div className={styles.nextAppointmentsContainer}>
             <header className={styles.nextAppointmentsOptions}>
-              <button className={`${styles.appointmentButton} ${styles.buttonActive}`}>Próximos</button>
-              <button className={styles.appointmentButton}>Abertos</button>
-              <button className={styles.appointmentButton}>Finalizados</button>
-              <button className={styles.appointmentButton}>Cancelados</button>
+              <button
+                className={`${styles.appointmentButton} ${optionsTypeAppointmentActive === 'next' && styles.buttonActive}`}
+                onClick={() => setOptionTypeAppointmentActive('next')}
+              >
+                Próximos
+              </button>
+              <button
+                className={`${styles.appointmentButton} ${optionsTypeAppointmentActive === 'open' && styles.buttonActive}`}
+                onClick={() => setOptionTypeAppointmentActive('open')}
+              >
+                Abertos
+              </button>
+              <button
+                className={`${styles.appointmentButton} ${optionsTypeAppointmentActive === 'done' && styles.buttonActive}`}
+                onClick={() => setOptionTypeAppointmentActive('done')}
+              >
+                Finalizados
+              </button>
+              <button
+                className={`${styles.appointmentButton} ${optionsTypeAppointmentActive === 'canceled' && styles.buttonActive}`}
+                onClick={() => setOptionTypeAppointmentActive('canceled')}
+              >
+                Cancelados
+              </button>
+              <div
+                className={styles.activeButton}
+                style={{
+                  left: optionsTypeAppointmentActive === 'next' ? 0 :
+                    optionsTypeAppointmentActive === 'open' ? '25%' :
+                      optionsTypeAppointmentActive === 'done' ? '50%' : '75%'
+                }}
+              />
             </header>
 
             <div className={styles.appointmentsListContainer}>
