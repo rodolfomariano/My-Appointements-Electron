@@ -1,11 +1,16 @@
 import './styles/global.scss'
 import './App.scss'
-import { Appointments } from './pages/Appointments'
+
+import { BrowserRouter as Router } from 'react-router-dom'
+
+import Routes from './routes'
 
 function App() {
 
   return (
-    <Appointments />
+    <Router>
+      <Routes />
+    </Router>
   )
 }
 

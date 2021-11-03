@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import { FiMenu, FiX } from 'react-icons/fi'
 
@@ -31,15 +32,19 @@ export function FloatingMenu() {
       </button>
 
       <section className={menuIsVisible ? `${styles.button_options} ${styles.visible}` : `${styles.button_options} ${styles.hidden}`}>
-        <button>
-          <IoPieChartSharp style={{ marginRight: '0.5rem' }} />
-          Dashboard
-        </button>
+        <Link to="/">
+          <button>
+            <IoPieChartSharp style={{ marginRight: '0.5rem' }} />
+            Dashboard
+          </button>
+        </Link>
 
-        <button>
-          <IoCalendarSharp style={{ marginRight: '0.5rem' }} />
-          Agendamentos
-        </button>
+        <Link to="/appointments">
+          <button>
+            <IoCalendarSharp style={{ marginRight: '0.5rem' }} />
+            Agendamentos
+          </button>
+        </Link>
 
         <button>
           <IoLogoUsd style={{ marginRight: '0.5rem' }} />
