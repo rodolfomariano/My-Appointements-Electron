@@ -92,7 +92,7 @@
           .dayContainer {
             display: grid;
             grid-template-columns: repeat(7, minmax(auto, 1fr));
-
+            
             .dayButton {
               width: 100%;
               height: 70px;
@@ -255,9 +255,11 @@
             height: 1px;
             background-color: #353d40;
             transition: 300ms;
+
           }
 
           .appointmentButton {
+            position: relative;
             width: 100%;
             font-size: 1rem;
             font-weight: 300;
@@ -274,6 +276,27 @@
 
             &:hover {
               font-weight: 400;
+            }
+
+            .badges {
+              position: absolute;
+              padding: 3px;
+              top: 0;
+              right: 0;
+              background-color: #353d40;
+              border-radius: 50%;
+
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              span {
+                color: var(--background-light);
+                font-size: .6rem;
+              }
+              &.badgesNext { background-color: var(--background-dark); }
+              &.badgesDone { background-color: var(--done); }
+              &.badgesCanceled { background-color: var(--cancel); }
             }
 
   

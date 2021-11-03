@@ -224,24 +224,36 @@ export function Appointments() {
                 onClick={() => setOptionTypeAppointmentActive('next')}
               >
                 Próximos
+                <div className={`${styles.badges} ${styles.badgesNext}`}>
+                  <span>10</span>
+                </div>
               </button>
               <button
                 className={`${styles.appointmentButton} ${optionsTypeAppointmentActive === 'open' && styles.buttonActive}`}
                 onClick={() => setOptionTypeAppointmentActive('open')}
               >
                 Abertos
+                <div className={`${styles.badges} ${styles.badgesOpen}`}>
+                  <span>10</span>
+                </div>
               </button>
               <button
                 className={`${styles.appointmentButton} ${optionsTypeAppointmentActive === 'done' && styles.buttonActive}`}
                 onClick={() => setOptionTypeAppointmentActive('done')}
               >
                 Finalizados
+                <div className={`${styles.badges} ${styles.badgesDone}`}>
+                  <span>10</span>
+                </div>
               </button>
               <button
                 className={`${styles.appointmentButton} ${optionsTypeAppointmentActive === 'canceled' && styles.buttonActive}`}
                 onClick={() => setOptionTypeAppointmentActive('canceled')}
               >
                 Cancelados
+                <div className={`${styles.badges} ${styles.badgesCanceled}`}>
+                  <span>10</span>
+                </div>
               </button>
               <div
                 className={styles.activeButton}
