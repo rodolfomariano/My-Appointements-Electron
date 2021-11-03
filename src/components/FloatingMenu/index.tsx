@@ -46,30 +46,40 @@ export function FloatingMenu() {
           </button>
         </Link>
 
-        <button>
-          <IoLogoUsd style={{ marginRight: '0.5rem' }} />
-          Finanças
-        </button>
+        <Link to="/finances">
+          <button>
+            <IoLogoUsd style={{ marginRight: '0.5rem' }} />
+            Finanças
+          </button>
+        </Link>
 
-        <button>
-          <FaUserAlt style={{ marginRight: '0.5rem' }} />
-          Clientes
-        </button>
+        <Link to="/clients">
+          <button>
+            <FaUserAlt style={{ marginRight: '0.5rem' }} />
+            Clientes
+          </button>
+        </Link>
 
-        <button>
-          <FaUniversity style={{ marginRight: '0.5rem' }} />
-          Audiência
-        </button>
+        <Link to="/court-hearing">
+          <button>
+            <FaUniversity style={{ marginRight: '0.5rem' }} />
+            Audiência
+          </button>
+        </Link>
 
-        <button>
-          <FaAddressBook style={{ marginRight: '0.5rem' }} />
-          Contatos
-        </button>
+        <Link to="/contacts">
+          <button>
+            <FaAddressBook style={{ marginRight: '0.5rem' }} />
+            Contatos
+          </button>
+        </Link>
 
-        <button>
-          <FaUserShield style={{ marginRight: '0.5rem' }} />
-          Controle de acesso
-        </button>
+        <Link to="/access-control">
+          <button>
+            <FaUserShield style={{ marginRight: '0.5rem' }} />
+            Controle de acesso
+          </button>
+        </Link>
 
       </section>
     </div>
