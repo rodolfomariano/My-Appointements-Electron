@@ -9,6 +9,7 @@ import { SimpleButton } from '../../components/SimpleButton'
 import { AppointmentCard } from '../../components/AppointmentCard'
 
 import { data } from '../../utils/dayAndMonths'
+import { appointments } from '../../localData/appointments'
 
 interface AppointmentOfDayProps {
   day: number,
@@ -40,6 +41,7 @@ export function Appointments() {
 
   const currentDayString = String(currentDay)
   currentDayString.length === 1 ? currentDayFormatted = `0${currentDayString}` : currentDayFormatted = currentDayString
+
 
 
   const dayOfMonth = new Date(currentYear, currentMonth, 1)
@@ -101,6 +103,11 @@ export function Appointments() {
 
     setAppointmentOfDay(data)
   }
+
+  const statusNext = appointments.filter(item => item.status === 'next')
+  const statusOpen = appointments.filter(item => item.status === 'open')
+  const statusDone = appointments.filter(item => item.status === 'done')
+  const statusCanceled = appointments.filter(item => item.status === 'canceled')
 
   return (
     <main className={styles.container}>
@@ -214,7 +221,9 @@ export function Appointments() {
             Próximo compromisso
           </p>
           <div className={styles.nextAppointment}>
-            <AppointmentCard type='emphasis' />
+
+            <AppointmentCard type='emphasis' data={appointments[0]} />
+
           </div>
 
           <div className={styles.nextAppointmentsContainer}>
@@ -224,36 +233,44 @@ export function Appointments() {
                 onClick={() => setOptionTypeAppointmentActive('next')}
               >
                 Próximos
-                <div className={`${styles.badges} ${styles.badgesNext}`}>
-                  <span>10</span>
-                </div>
+                {statusNext.length > 0 &&
+                  <div className={`${styles.badges} ${styles.badgesNext}`}>
+                    <span>{statusNext.length - 1}</span>
+                  </div>
+                }
               </button>
               <button
                 className={`${styles.appointmentButton} ${optionsTypeAppointmentActive === 'open' && styles.buttonActive}`}
                 onClick={() => setOptionTypeAppointmentActive('open')}
               >
                 Abertos
-                <div className={`${styles.badges} ${styles.badgesOpen}`}>
-                  <span>10</span>
-                </div>
+                {statusOpen.length > 0 &&
+                  <div className={`${styles.badges} ${styles.badgesOpen}`}>
+                    <span>{statusOpen.length}</span>
+                  </div>
+                }
               </button>
               <button
                 className={`${styles.appointmentButton} ${optionsTypeAppointmentActive === 'done' && styles.buttonActive}`}
                 onClick={() => setOptionTypeAppointmentActive('done')}
               >
                 Finalizados
-                <div className={`${styles.badges} ${styles.badgesDone}`}>
-                  <span>10</span>
-                </div>
+                {statusDone.length > 0 &&
+                  <div className={`${styles.badges} ${styles.badgesDone}`}>
+                    <span>{statusDone.length}</span>
+                  </div>
+                }
               </button>
               <button
                 className={`${styles.appointmentButton} ${optionsTypeAppointmentActive === 'canceled' && styles.buttonActive}`}
                 onClick={() => setOptionTypeAppointmentActive('canceled')}
               >
                 Cancelados
-                <div className={`${styles.badges} ${styles.badgesCanceled}`}>
-                  <span>10</span>
-                </div>
+                {statusCanceled.length < 0 &&
+                  <div className={`${styles.badges} ${styles.badgesCanceled}`}>
+                    <span>{statusCanceled.length}</span>
+                  </div>
+                }
               </button>
               <div
                 className={styles.activeButton}
@@ -265,15 +282,15 @@ export function Appointments() {
               />
             </header>
 
-            <div className={styles.appointmentsListContainer}>
-              <AppointmentCard />
-              <AppointmentCard />
-              <AppointmentCard />
-              <AppointmentCard />
-              <AppointmentCard />
+            {optionsTypeAppointmentActive &&
 
+              <div className={styles.appointmentsListContainer}>
+                {appointments.map((item, index) =>
+                  index !== 0 && appointmentOfDay.day === item.date.day && item.status === optionsTypeAppointmentActive && <AppointmentCard data={item} />
+                )}
+              </div>
+            }
 
-            </div>
           </div>
         </main>
       </section>

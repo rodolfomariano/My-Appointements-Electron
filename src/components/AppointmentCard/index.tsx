@@ -1,29 +1,56 @@
 
-import { FaBookReader, FaEllipsisV } from 'react-icons/fa'
+import { FaEllipsisV } from 'react-icons/fa'
 
 import styles from './styles.module.scss'
 
-interface AppointmentCardProps {
-  type?: 'default' | 'emphasis'
+import { iconColors } from '../../localData/appointments'
+
+interface AppointmentData {
+  title: string,
+  description: string,
+  date: {
+    year: number,
+    month: number,
+    day: number,
+    time: string,
+    // multi?: {
+    //   firstDay?: 20,
+    //   lastDay?: 30,
+    //   lastMonth?: 11
+    // }
+  },
+  type: string,
+  status: string
 }
 
-export function AppointmentCard({ type = 'default' }: AppointmentCardProps) {
+interface AppointmentCardProps {
+  type?: 'default' | 'emphasis'
+  data: AppointmentData
+}
+
+
+
+export function AppointmentCard({ type = 'default', data }: AppointmentCardProps) {
+
+
+  const icon = iconColors.find(item => item.type === data.type)
 
 
   return (
 
     <div className={type === 'default' ? `${styles.container} ${styles.default}` : `${styles.container} ${styles.emphasis}`}>
-      <div className={styles.iconContainer}>
-        <FaBookReader />
+
+      <div className={styles.iconContainer} style={{ backgroundColor: icon?.color }}>
+        {icon?.icon}
       </div>
 
       <div className={styles.appointmentData}>
         <div className={styles.aboutAppointment}>
-          <h3 className={styles.appointmentTitle}>Estudo</h3>
-          <span className={styles.appointmentDescription}>Faculdade</span>
+          <h3 className={styles.appointmentTitle}>{data.title}</h3>
+          <span className={styles.appointmentDescription}>{data.description}</span>
         </div>
 
-        <span className={styles.appointmentTime}>10:30 - 12:30</span>
+        <span className={styles.appointmentTime}>{data.date.time}</span>
       </div>
 
       <div className={styles.actions}>
