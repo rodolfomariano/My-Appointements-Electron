@@ -2,10 +2,10 @@
 import { FaCalendarCheck, FaBookOpen, FaCarAlt, FaDumbbell } from 'react-icons/fa'
 
 export const iconColors = [
-  { type: 'meet', color: '#16b152', icon: <FaCalendarCheck /> },
-  { type: 'study', color: '#dd2acc', icon: <FaBookOpen /> },
-  { type: 'vacation', color: '#22aadd', icon: <FaCarAlt /> },
-  { type: 'exercise', color: '#22cc22', icon: <FaDumbbell /> }
+  { id: 1, type: 'meet', title: 'Reunião', color: '#16b152', icon: <FaCalendarCheck /> },
+  { id: 2, type: 'study', title: 'Estudo', color: '#dd2acc', icon: <FaBookOpen /> },
+  { id: 3, type: 'vacation', title: 'Férias', color: '#22aadd', icon: <FaCarAlt /> },
+  { id: 4, type: 'exercise', title: 'Exercicio Fisico', color: '#22cc22', icon: <FaDumbbell /> }
 ]
 
 export const appointments = [
