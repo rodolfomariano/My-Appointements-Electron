@@ -1,7 +1,8 @@
+import { useState } from 'react'
+
 import styles from './styles.module.scss'
 
 import { FiX } from 'react-icons/fi'
-import { useState } from 'react'
 
 import { iconColors } from '../../localData/appointments'
 
@@ -101,8 +102,12 @@ export function ModalNewAppointment({ closeModal }: ModalNewAppointmentProps) {
           </div>
         </div>
 
-        <div className={progressBar === 60 ? ` ${styles.step} ${styles.active}` : styles.step}>
+        <div className={progressBar === 60 ? ` ${styles.step3} ${styles.active}` : styles.step3}>
+          <label htmlFor="selectType">Selecione a data: </label>
+          <input type="date" name="" id="" />
+          <div className={styles.calendarContent}>
 
+          </div>
         </div>
 
       </main>
