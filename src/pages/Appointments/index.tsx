@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { FiChevronRight, FiChevronLeft } from 'react-icons/fi'
 
 import styles from './styles.module.scss'
@@ -41,7 +41,6 @@ export function Appointments() {
 
   const currentDayString = String(currentDay)
   currentDayString.length === 1 ? currentDayFormatted = `0${currentDayString}` : currentDayFormatted = currentDayString
-
 
 
   const dayOfMonth = new Date(currentYear, currentMonth, 1)
@@ -104,10 +103,18 @@ export function Appointments() {
     setAppointmentOfDay(data)
   }
 
-  const statusNext = appointments.filter(item => item.status === 'next')
+  useEffect(() => {
+    handleAlterAppointmentsDay(currentDay)
+  }, [])
+
+  console.log(currentDay)
+
+  const statusNext = appointments.filter(item => item.status === 'next' && item.date.day === currentDay)
   const statusOpen = appointments.filter(item => item.status === 'open')
   const statusDone = appointments.filter(item => item.status === 'done')
   const statusCanceled = appointments.filter(item => item.status === 'canceled')
+
+  console.log(statusNext)
 
   return (
     <main className={styles.container}>
@@ -281,6 +288,7 @@ export function Appointments() {
                 }}
               />
             </header>
+
 
             {optionsTypeAppointmentActive &&
 
