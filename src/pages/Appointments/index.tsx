@@ -107,14 +107,16 @@ export function Appointments() {
     handleAlterAppointmentsDay(currentDay)
   }, [])
 
-  console.log(currentDay)
-
-  const statusNext = appointments.filter(item => item.status === 'next' && item.date.day === currentDay)
+  const statusNext = appointments.filter(item => item.status === 'next')
   const statusOpen = appointments.filter(item => item.status === 'open')
   const statusDone = appointments.filter(item => item.status === 'done')
   const statusCanceled = appointments.filter(item => item.status === 'canceled')
 
-  console.log(statusNext)
+  const statusNextDay = statusNext.filter(item => item.date.day === appointmentOfDay.day).sort((a, b) => a.date.time.initial - b.date.time.initial)
+  const statusOpenDay = statusOpen.filter(item => item.date.day === appointmentOfDay.day).sort((a, b) => a.date.time.initial - b.date.time.initial)
+  const statusDoneDay = statusDone.filter(item => item.date.day === appointmentOfDay.day).sort((a, b) => a.date.time.initial - b.date.time.initial)
+  const statusCanceledDay = statusCanceled.filter(item => item.date.day === appointmentOfDay.day).sort((a, b) => a.date.time.initial - b.date.time.initial)
+
 
   return (
     <main className={styles.container}>
@@ -192,8 +194,10 @@ export function Appointments() {
                         {day.day}
                       </span>
                       <div className={styles.appointmentTagContainer}>
-                        {/* <span className={styles.tag} />
-                        <span className={styles.tag} /> */}
+                        {
+                          statusNext.map(item => item.date.day === day.day && <span className={styles.tag} />)
+                        }
+
                       </div>
 
                     </button>
@@ -229,7 +233,9 @@ export function Appointments() {
           </p>
           <div className={styles.nextAppointment}>
 
-            <AppointmentCard type='emphasis' data={appointments[0]} />
+            {
+              statusNextDay.map((item, index) => index === 0 && <AppointmentCard type='emphasis' data={item} />)
+            }
 
           </div>
 
@@ -240,9 +246,9 @@ export function Appointments() {
                 onClick={() => setOptionTypeAppointmentActive('next')}
               >
                 Próximos
-                {statusNext.length > 0 &&
+                {statusNext.length > 0 && statusNext.filter(item => item.date.day === appointmentOfDay.day).length - 1 > 0 &&
                   <div className={`${styles.badges} ${styles.badgesNext}`}>
-                    <span>{statusNext.length - 1}</span>
+                    <span>{statusNext.filter(item => item.date.day === appointmentOfDay.day).length - 1}</span>
                   </div>
                 }
               </button>
@@ -251,9 +257,9 @@ export function Appointments() {
                 onClick={() => setOptionTypeAppointmentActive('open')}
               >
                 Abertos
-                {statusOpen.length > 0 &&
+                {statusOpen.length > 0 && statusOpen.filter(item => item.date.day === appointmentOfDay.day).length > 0 &&
                   <div className={`${styles.badges} ${styles.badgesOpen}`}>
-                    <span>{statusOpen.length}</span>
+                    <span>{statusOpen.filter(item => item.date.day === appointmentOfDay.day).length}</span>
                   </div>
                 }
               </button>
@@ -293,9 +299,15 @@ export function Appointments() {
             {optionsTypeAppointmentActive &&
 
               <div className={styles.appointmentsListContainer}>
-                {appointments.map((item, index) =>
+                {/* {appointments.map((item, index) =>
                   index !== 0 && appointmentOfDay.day === item.date.day && item.status === optionsTypeAppointmentActive && <AppointmentCard data={item} />
-                )}
+                )} */}
+                {
+                  optionsTypeAppointmentActive === 'next' ? statusNextDay.map((item, index) => index !== 0 && <AppointmentCard data={item} />)
+                    : optionsTypeAppointmentActive === 'open' ? statusOpenDay.map((item) => <AppointmentCard data={item} />)
+                      : optionsTypeAppointmentActive === 'done' ? statusDoneDay.map((item) => <AppointmentCard data={item} />)
+                        : optionsTypeAppointmentActive === 'canceled' && statusCanceledDay.map((item) => <AppointmentCard data={item} />)
+                }
               </div>
             }
 

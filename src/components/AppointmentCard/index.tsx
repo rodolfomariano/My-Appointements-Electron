@@ -12,7 +12,10 @@ interface AppointmentData {
     year: number,
     month: number,
     day: number,
-    time: string,
+    time: {
+      initial: number,
+      finish: number
+    }
     // multi?: {
     //   firstDay?: 20,
     //   lastDay?: 30,
@@ -50,7 +53,7 @@ export function AppointmentCard({ type = 'default', data }: AppointmentCardProps
           <span className={styles.appointmentDescription}>{data.description}</span>
         </div>
 
-        <span className={styles.appointmentTime}>{data.date.time}</span>
+        <span className={styles.appointmentTime}>Das {data.date.time.initial}:00 as {data.date.time.finish}:00</span>
       </div>
 
       <div className={styles.actions}>
