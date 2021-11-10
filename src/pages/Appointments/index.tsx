@@ -71,7 +71,6 @@ export function Appointments() {
     })
 
     dayOfMonth.setDate(dayOfMonth.getDate() + 1)
-
   }
 
   function handleAlterMonth(type: 'increment' | 'decrement') {
@@ -195,7 +194,10 @@ export function Appointments() {
                       </span>
                       <div className={styles.appointmentTagContainer}>
                         {
-                          statusNext.map(item => item.date.day === day.day && <span className={styles.tag} />)
+                          statusNext.map((item, index) => item.date.day === day.day
+                            && item.date.month === day.fullDate.getMonth()
+                            && item.date.year === day.fullDate.getFullYear()
+                            && <span className={styles.tag} />)
                         }
 
                       </div>

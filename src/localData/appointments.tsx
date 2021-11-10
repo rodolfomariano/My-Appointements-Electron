@@ -1,16 +1,17 @@
 
-import { FaCalendarCheck, FaBookOpen, FaCarAlt, FaDumbbell } from 'react-icons/fa'
+import { FaCalendarCheck, FaBookOpen, FaCarAlt, FaDumbbell, FaBlackTie } from 'react-icons/fa'
 
 export const iconColors = [
   { id: 1, type: 'meet', title: 'Reunião', color: '#16b152', icon: <FaCalendarCheck /> },
   { id: 2, type: 'study', title: 'Estudo', color: '#dd2acc', icon: <FaBookOpen /> },
   { id: 3, type: 'vacation', title: 'Férias', color: '#22aadd', icon: <FaCarAlt /> },
-  { id: 4, type: 'exercise', title: 'Exercicio Fisico', color: '#22cc22', icon: <FaDumbbell /> }
+  { id: 4, type: 'exercise', title: 'Exercicio Fisico', color: '#22cc22', icon: <FaDumbbell /> },
+  { id: 4, type: 'work', title: 'Trabalho', color: '#752c8b', icon: <FaBlackTie /> }
 ]
 
 export const appointments = [
   {
-    id: '01',
+    id: 1,
     title: 'Estudar Portugues',
     description: 'Estudar portugues',
     date: {
@@ -26,7 +27,7 @@ export const appointments = [
     status: 'next'
   },
   {
-    id: '02',
+    id: 2,
     title: 'Reunião',
     description: 'Reunião com investifores',
     date: {
@@ -42,7 +43,7 @@ export const appointments = [
     status: 'open'
   },
   {
-    id: '03',
+    id: 3,
     title: 'Férias',
     description: 'Férias internacional',
     date: {
@@ -63,7 +64,7 @@ export const appointments = [
     status: 'next'
   },
   {
-    id: '04',
+    id: 4,
     title: 'Niver',
     description: 'Férias internacional',
     date: {
@@ -84,7 +85,7 @@ export const appointments = [
     status: 'next'
   },
   {
-    id: '05',
+    id: 5,
     title: 'Reunião',
     description: 'Reuião com colaboradores',
     date: {
@@ -100,7 +101,7 @@ export const appointments = [
     status: 'next'
   },
   {
-    id: '06',
+    id: 6,
     title: 'Treino Funcional',
     description: 'Treino de explosão',
     date: {

@@ -5,6 +5,7 @@ import { ModalNewAppointment } from '../ModalNewAppointment'
 
 import styles from './styles.module.scss'
 
+
 export function SimpleButton() {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
