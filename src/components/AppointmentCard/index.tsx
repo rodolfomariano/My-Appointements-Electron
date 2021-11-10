@@ -50,7 +50,7 @@ export function AppointmentCard({ type = 'default', data }: AppointmentCardProps
       <div className={styles.appointmentData}>
         <div className={styles.aboutAppointment}>
           <h3 className={styles.appointmentTitle}>{data.title}</h3>
-          <span className={styles.appointmentDescription}>{data.description}</span>
+          <span className={styles.appointmentDescription}>{data.description.length > 32 ? `${data.description.substr(0, 32)}...` : data.description}</span>
         </div>
 
         <span className={styles.appointmentTime}>Das {data.date.time.initial}:00 as {data.date.time.finish}:00</span>
