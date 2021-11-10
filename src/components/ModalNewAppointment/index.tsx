@@ -86,13 +86,12 @@ export function ModalNewAppointment({ closeModal }: ModalNewAppointmentProps) {
       })
 
       closeModal()
+      // window.location.reload()
 
     } catch (error) {
       console.log(error)
     }
   }
-
-
 
   return (
     <div className={styles.container}>

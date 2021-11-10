@@ -103,6 +103,10 @@ export function Appointments() {
   }
 
   useEffect(() => {
+    console.log(appointments.length)
+  }, [appointments.length])
+
+  useEffect(() => {
     handleAlterAppointmentsDay(currentDay)
   }, [])
 
@@ -316,6 +320,7 @@ export function Appointments() {
           </div>
         </main>
       </section>
+
     </main>
   )
 }
