@@ -216,7 +216,7 @@ export function Appointments() {
             <div className={styles.tagContainer}>
               <div className={styles.tagDescription}>
                 <div className={styles.tagCircle} />
-                <span className={styles.tagTitle}>Compromisso interno</span>
+                <span className={styles.tagTitle}>Compromisso  interno</span>
               </div>
             </div>
           </section>
